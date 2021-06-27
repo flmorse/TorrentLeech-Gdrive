@@ -47,12 +47,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install docker-ce docker-ce-cli containerd.io
           
-      - name: Deploying
+      - name: Deploying 1
         run: |
-          sudo rm -rf /var/snap/docker/179/run/docker.pid
-          sudo systemctl start docker
           sudo dockerd
+      - name: Deploying 2
+        run: |
           sudo docker build . -t torrentleech-gdrive
+      - name: Deploying 3
+        run: |
           sudo docker run torrentleech-gdrive
           
       - name: Keep Alive
