@@ -48,9 +48,12 @@ jobs:
           sudo apt-get install docker-ce docker-ce-cli containerd.io
           sudo docker run hello-world
           
-      - name: Deploying
+      - name: Deploying 1
         run: |
           sudo docker build . -t torrentleech-gdrive
+      
+      - name: Deploying 2
+        run: |
           sudo docker run torrentleech-gdrive
           
       - name: Keep Alive
