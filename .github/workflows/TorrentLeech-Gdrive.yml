@@ -49,6 +49,8 @@ jobs:
           
       - name: Deploying
         run: |
+          sudo rm -rf /var/snap/docker/179/run/docker.pid
+          sudo systemctl start docker
           sudo dockerd
           sudo docker build . -t torrentleech-gdrive
           sudo docker run torrentleech-gdrive
